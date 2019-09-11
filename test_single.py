@@ -33,6 +33,7 @@ args = parser.parse_args()
 
 dataset_dir = cfg.DATA_DIR
 test_dir = os.path.join(dataset_dir, 'testing')
+print("dir", test_dir)
 res_dir = os.path.join('.', args.output_path)
 save_model_dir = os.path.join('.', 'save_model', args.tag)
     

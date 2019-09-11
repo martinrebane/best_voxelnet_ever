@@ -50,8 +50,8 @@ def iterate_data(data_dir, shuffle=False, aug=False, is_testset=False, batch_siz
     
     data_tag = [name.split(os.sep)[-1].split('.')[-2] for name in f_rgb]
     
-    assert len(data_tag) != 0, "dataset folder is not correct"
-    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct"
+    assert len(data_tag) != 0, "dataset folder is not correct:" + data_dir
+    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct:" + data_dir
     
     nums = len(f_rgb)
     
@@ -109,8 +109,8 @@ def sample_test_data(data_dir, batch_size=1, multi_gpu_sum=1):
     
     data_tag = [name.split(os.sep)[-1].split('.')[-2] for name in f_rgb]
     
-    assert len(data_tag) != 0, "dataset folder is not correct"
-    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct"
+    assert len(data_tag) != 0, "dataset folder is not correct" + data_dir
+    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct" + data_dir
     
     nums = len(f_rgb)
     
@@ -157,11 +157,14 @@ def sample_single_data(data_dir, data_tag):
     f_rgb = glob.glob(os.path.join(data_dir, 'image_2', data_tag + '.png'))
     f_lidar = glob.glob(os.path.join(data_dir, 'velodyne', data_tag + '.bin'))
     f_label = glob.glob(os.path.join(data_dir, 'label_2', data_tag + '.txt'))
-    
+    print(os.path.join(data_dir, 'velodyne', data_tag + '.bin'))
     data_tag = [data_tag]
     
-    assert len(data_tag) != 0, "dataset folder is not correct"
-    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct"
+    print(len(data_tag))
+    print(len(f_rgb))
+    print(len(f_lidar))
+    assert len(data_tag) != 0, "dataset folder is not correct (or is empty?)" + data_dir
+    assert len(data_tag) == len(f_rgb) == len(f_lidar) , "dataset folder is not correct" + data_dir
     
     indices = list(range(1))
     

@@ -18,7 +18,7 @@ __C = edict()
 cfg = __C
 
 # for dataset dir
-__C.DATA_DIR = osp.abspath(osp.join(os.sep, 'data', 'object'))
+__C.DATA_DIR = osp.abspath(osp.join(os.sep, 'root', 'data'))
 
 
 # for gpu allocation
