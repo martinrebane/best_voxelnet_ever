@@ -43,11 +43,17 @@ Split the KITTI dataset for training into **training** and **validation**.
 ```
 `config.py` must be updated if the **data** folder is not located in root.
 
-# Compilation
+# Compilation and dependencies
 Compile `box_overlaps.pyx` with running `setup.py`.
 ```
+pip install cython
 python setup.py build_ext --inplace
+
+apt-get install -y libsm6 libxext6 libxrender-dev
+
+pip install easydict opencv-python numba shapely
 ```
+
 
 # Usage
 0. Update `config.py` if you want to use multiple GPUs.
